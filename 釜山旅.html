@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>釜山櫻花之旅 4/4 - 4/8</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tab-active {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+        .map-container {
+            position: relative;
+            padding-bottom: 60%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* 櫻花色系定義 */
+        .bg-cherry { background-color: #fff1f2; }
+        .text-cherry { color: #f43f5e; }
+        .border-cherry { border-color: #fecdd3; }
+        .bg-ci-card { background-color: #ffe4e6; }
+    </style>
+</head>
+<body class="text-slate-800 pb-12">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white pt-8 pb-5 px-4 text-center shadow-md">
+        <h1 class="text-2xl font-bold mb-1 tracking-tight">『吳』敵釜山行</h1>
+        <p class="text-white-300 text-xs italic">2026/04/04 － 04/08</p>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm flex justify-around border-b border-slate-200">
+        <button onclick="showTab('transport-hotel')" id="tab-btn-transport-hotel" class="tab-btn py-4 px-2 text-sm font-medium transition-all tab-active">
+            <i class="fa-solid fa-plane mr-1"></i> 機 + 酒
+        </button>
+        <button onclick="showTab('itinerary')" id="tab-btn-itinerary" class="tab-btn py-4 px-2 text-sm font-medium transition-all text-slate-500">
+            <i class="fa-solid fa-calendar-day mr-1"></i> 每日行程
+        </button>
+        <button onclick="showTab('notice')" id="tab-btn-notice" class="tab-btn py-4 px-2 text-sm font-medium transition-all text-slate-500">
+            <i class="fa-solid fa-triangle-exclamation mr-1"></i> 注意事項
+        </button>
+		<button onclick="showTab('emergency')" id="tab-btn-emergency" class="tab-btn py-4 px-2 text-sm font-medium transition-all text-slate-500">
+            <i class="fa-solid fa-life-ring mr-1"></i> 急難救助
+        </button>
+    </nav>
+
+    <main class="max-w-2xl mx-auto p-4 mt-2">
+
+        <!-- TAB 1: 航班 & 飯店 -->
+        <section id="tab-transport-hotel" class="tab-content space-y-6">
+            <!-- 航班區 -->
+            <div class="bg-white rounded-2xl shadow-sm p-5 border border-slate-100">
+                <h3 class="font-bold text-lg mb-4 flex items-center text-blue-700">
+                    <i class="fa-solid fa-plane mr-2"></i> 航班行李資訊
+                </h3>
+                <div class="space-y-4">
+                    <!-- 釜山航空 -->
+                    <div class="p-4 bg-blue-50 rounded-xl border border-blue-100">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-blue-600 text-white text-[13px] px-2 py-1 rounded font-bold">去程 4/4 BX794</span>
+                            <span class="text-blue-700 font-bold">釜山航空</span>
+                        </div>
+                        <div class="space-y-3 text-sm text-slate-600">
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-suitcase-rolling w-6 mt-1 text-blue-500"></i>
+                                <div>
+                                    <span class="font-bold text-slate-800">托運行李：</span>15kg
+                                    <div class="text-[11px] opacity-80">尺寸限制：三邊總和203cm 內</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-suitcase w-6 mt-1 text-blue-500"></i>
+                                <div>
+                                    <span class="font-bold text-slate-800">手提行李：</span>10kg (限1件)
+                                    <div class="text-[11px] opacity-80">尺寸限制：三邊總和115cm 內 (55x40x20cm)</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-briefcase w-6 mt-1 text-blue-500"></i>
+                                <div><span class="font-bold text-slate-800">個人物品：</span>後背包/小提包 (限1件)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 中華航空 -->
+                    <div class="p-4 bg-ci-card rounded-xl border border-cherry">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-rose-400 text-white text-[13px] px-2 py-1 rounded font-bold">回程 4/8 CI189</span>
+                            <span class="text-rose-500 font-bold">中華航空</span>
+                        </div>
+                        <div class="space-y-3 text-sm text-slate-600">
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-suitcase-rolling w-6 mt-1 text-rose-400"></i>
+                                <div>
+                                    <span class="font-bold text-slate-800">托運行李：</span>23kg x 2件
+                                    <div class="text-[11px] opacity-80">尺寸限制：三邊總和158cm 內</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-suitcase w-6 mt-1 text-rose-400"></i>
+                                <div>
+                                    <span class="font-bold text-slate-800">手提行李：</span>7kg (限1件)
+                                    <div class="text-[11px] opacity-80">尺寸限制：56x36x23cm 內</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-briefcase w-6 mt-1 text-rose-400"></i>
+                                <div><span class="font-bold text-slate-800">隨身物品：</span>後背包/小提包 (限1件)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 飯店區 -->
+            <div class="bg-white rounded-2xl shadow-sm p-5 border border-slate-100">
+                <h3 class="font-bold text-lg mb-4 flex items-center text-blue-700">
+                    <i class="fa-solid fa-hotel mr-2"></i> 住宿飯店
+                </h3>
+                <div class="space-y-4">
+                    <div class="font-bold text-xl text-slate-800">Hotel Bellus (서면 벨루스 호텔)</div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex">
+                            <div class="w-10 text-slate-500 flex-shrink-0">韓文</div>
+                            <div class="font-medium text-slate-700">부산 부산진구 중앙대로691번가길 14-9</div>
+                        </div>
+                        <div class="flex">
+                            <div class="w-10 text-slate-500 flex-shrink-0">英文</div>
+                            <div class="text-slate-700">14-9, Jungang-daero 691beonga-gil, Busanjin-gu, Busan</div>
+                        </div>
+                        <div class="flex py-2 border-y border-slate-50 items-center">
+                            <div class="w-10 text-slate-500 flex-shrink-0">電話</div>
+                            <a href="tel:+82-51-803-7979" class="text-blue-600 font-bold text-lg tracking-wider">+82 51-803-7979</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Google Map 預覽 (修正為 Seomyeon Bellus Hotel) -->
+                    <div class="map-container shadow-inner border border-slate-100 mt-2">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1631.0313502844742!2d129.056347!3d35.155057!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568eb71ed192143%3A0x66dd3c7327f78d98!2z7ISc66m0IOuyqOujqOyKpCDtmLjthZQ!5e0!3m2!1szh-TW!2sus!4v1769670697558!5m2!1szh-TW!2sus" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <button onclick="copyText('부산 부산진구 중앙대로691번가길 14-9')" class="bg-slate-100 py-3 rounded-xl text-sm font-medium hover:bg-slate-200 transition">
+                            <i class="fa-regular fa-copy mr-1"></i> 複製韓文地址
+                        </button>
+                        <a href="https://naver.me/xdpTi4xR" target="_blank" class="bg-blue-600 text-white py-3 rounded-xl text-sm font-medium text-center shadow-sm">
+                            <i class="fa-solid fa-map-location-dot mr-1"></i> 開始導航
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: 每日行程 -->
+        <section id="tab-itinerary" class="tab-content hidden space-y-8">
+            
+            <!-- DAY 1 -->
+            <div class="itinerary-day">
+                <div class="flex items-center gap-2 mb-4 bg-blue-50 w-fit px-4 py-1 rounded-full border border-blue-100">
+                    <span class="font-black text-blue-600 text-sm">DAY 1</span>
+                    <span class="text-blue-400 font-medium text-xs">4/4 (六)</span>
+                </div>
+                <div class="relative timeline-line ml-4 space-y-8">
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">09:30</div>
+                        <div class="font-bold text-lg">Home</div>
+                        <div class="text-xs text-slate-500 mt-1">從家裡出發</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-slate-300 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">13:30</div>
+                        <div class="font-bold text-lg text-slate-700">桃園機場 T2</div>
+                        <div class="text-xs text-slate-500 mt-1">辦理登機</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-orange-500">19:20</div>
+                        <div class="font-bold text-lg">西面烤肉四大家 🥩</div>
+                        <div class="text-xs text-slate-500 mt-1">先到飯店 Check-in 再前往享用釜山烤肉四大名店</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-purple-500">20:40</div>
+                        <div class="font-bold text-lg">自由活動 🛍️</div>
+                        <div class="text-xs text-slate-500 mt-1">可以逛 Daiso、Olive Young 等</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200">
+
+            <!-- DAY 2 -->
+            <div class="itinerary-day">
+                <div class="flex items-center gap-2 mb-4 bg-rose-50 w-fit px-4 py-1 rounded-full border border-rose-100">
+                    <span class="font-black text-rose-600 text-sm">DAY 2</span>
+                    <span class="text-rose-400 font-medium text-xs">4/5 (日)</span>
+                </div>
+                <div class="relative timeline-line ml-4 space-y-8">
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-slate-400 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">08:30</div>
+                        <div class="font-bold text-lg">西面站 4 號出口集合</div>
+                        <div class="text-xs text-slate-500 mt-1">一日遊團體專車出發</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">早餐：超商自理</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-pink-400 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-pink-500">10:30</div>
+                        <div class="font-bold text-lg text-slate-800">鎮海軍港節慶典 🌸</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">午餐：附近自理</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-pink-400 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-pink-500">14:00</div>
+                        <div class="font-bold text-lg text-slate-800">余佐川櫻花道</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-pink-400 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-pink-500">15:00</div>
+                        <div class="font-bold text-lg text-slate-800">慶和站鐵道</div>
+                        <div class="text-xs text-slate-600 mt-1">賞櫻名所拍照</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-orange-500">18:30</div>
+                        <div class="font-bold text-lg">海雲台市場</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">
+                            晚餐：自理<br>
+                            推薦豬肉湯飯、牛骨湯
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200">
+
+            <!-- DAY 3 -->
+            <div class="itinerary-day">
+                <div class="flex items-center gap-2 mb-4 bg-yellow-50 w-fit px-4 py-1 rounded-full border border-blue-100">
+                    <span class="font-black text-yellow-600 text-sm">DAY 3</span>
+                    <span class="text-yellow-400 font-medium text-xs">4/6 (一)</span>
+                </div>
+                <div class="relative timeline-line ml-4 space-y-8">
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-slate-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">09:30</div>
+                        <div class="font-bold text-lg">包車從飯店出發</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">早餐：Egg Drop</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">10:00</div>
+                        <div class="font-bold text-lg">甘川洞文化村</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-orange-500">11:30</div>
+                        <div class="font-bold text-lg text-slate-800">南浦洞</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">午餐：蔘雞湯</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">12:30</div>
+                        <div class="font-bold text-lg text-slate-800">釜山塔 / 龍頭山公園</div>
+                        <div class="text-xs text-slate-600 mt-1">俯瞰釜山市景</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">14:00</div>
+                        <div class="font-bold text-lg text-slate-800">白淺灘文化村 ☕</div>
+                        <div class="text-xs text-slate-600 mt-1">咖啡廳喝咖啡欣賞海景</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-purple-500">16:00</div>
+                        <div class="font-bold text-lg text-slate-800">西面逛街 🛍️</div>
+                        <div class="text-xs text-slate-600 mt-1">逛樂天免稅店或地下街</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">
+                            晚餐：自理<br>
+                            推薦豬肉湯飯、刀削麵
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200">
+
+            <!-- DAY 4 -->
+            <div class="itinerary-day">
+                <div class="flex items-center gap-2 mb-4 bg-green-50 w-fit px-4 py-1 rounded-full border border-blue-100">
+                    <span class="font-black text-green-600 text-sm">DAY 4</span>
+                    <span class="text-green-400 font-medium text-xs">4/7 (二)</span>
+                </div>
+                <div class="relative timeline-line ml-4 space-y-10">
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-slate-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">10:00</div>
+                        <div class="font-bold text-lg">包車從飯店出發</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">早餐：飯捲</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">10:40</div>
+                        <div class="font-bold text-lg">海東龍宮寺</div>
+                        <div class="text-xs text-slate-600 mt-1">韓國第一間建在海岸的佛寺！</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-orange-500">12:20</div>
+                        <div class="font-bold text-lg">機張市場 🦀</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">午餐：新鮮松葉蟹</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">14:00</div>
+                        <div class="font-bold text-lg">Busan X The Sky</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">15:40</div>
+                        <div class="font-bold text-lg">海雲台景觀火車 🚃</div>
+                        <div class="text-xs text-slate-600 mt-1">
+                            尾浦→青沙浦：海岸列車<br>
+                            咖啡廳喝咖啡欣賞海景<br>
+                            青沙浦→尾浦：膠囊列車
+                        </div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-orange-500">18:00</div>
+                        <div class="font-bold text-lg text-slate-800">南浦洞</div>
+                        <div class="text-xs text-slate-600 mt-1">富平罐頭市場、BIFF廣場、樂天百貨光復店...等</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">
+                            晚餐：自理<br>
+                            推薦烤腸、烤鰻魚或夜市小吃
+                        </div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-purple-500">21:00</div>
+                        <div class="font-bold text-lg">LOTTE MART 🛍️</div>
+                        <div class="text-xs text-slate-600 mt-1">最後採買</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200">
+
+            <!-- DAY 5 -->
+            <div class="itinerary-day">
+                <div class="flex items-center gap-2 mb-4 bg-slate-100 w-fit px-4 py-1 rounded-full border border-slate-200">
+                    <span class="font-black text-slate-600 text-sm">DAY 5</span>
+                    <span class="text-slate-400 font-medium text-xs">4/8 (三)</span>
+                </div>
+                <div class="relative timeline-line ml-4">
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-slate-300 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">09:40</div>
+                        <div class="font-bold text-lg">釜山金海機場</div>
+                        <div class="text-xs text-slate-600 mt-1">09:00 機場接送從飯店出發</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">早餐：機場航廈自理</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- TAB 3: 注意事項 -->
+		<section id="tab-notice" class="tab-content hidden space-y-2">
+            <!-- 旅遊注意事項 -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
+                <h3 class="font-bold text-lg mb-4 flex items-center text-slate-700">
+                    <i class="fa-solid fa-passport mr-2"></i> 旅遊注意事項
+                </h3>
+                <div class="text-sm text-slate-800">
+					<ul class="space-y-4">
+						<li class="flex gap-3">
+							<i class="fa-solid fa-capsules text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>藥品管制：</strong>
+								日本「EVE 止痛藥」在韓國為管制藥品，嚴禁攜帶入境，建議改帶其他成分藥品。
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-battery-half text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>行動電源：</strong>
+								<span class="text-red-600 font-semibold">不得托運</span>，請隨身攜帶。需標示 Wh，160Wh 以下可攜帶登機。
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-fire-flame-curved text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>暖暖包：</strong>
+								2026 最新規定，金海機場<span class="text-red-600 font-semibold">嚴禁托運</span>（無論拆封與否），必須放手提行李。
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-map-location-dot text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>地圖 App：</strong>
+								建議下載 <span class="text-blue-600 font-semibold">Naver Map</span>，Google Maps 在韓國導航相當不精確。
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-bolt text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>電壓及插座：</strong>
+								220V 歐規插頭（Type F），需自備轉接頭，建議不攜帶非必要電器。
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-language text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>翻譯軟體：</strong>
+								推薦使用 Papago 翻譯菜單或語音，也可搭配 ChatGPT / Gemini 輔助。
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-smoking-ban text-blue-500 mt-1 shrink-0"></i>
+							<div>
+								<strong>吸菸規定：</strong>
+								室內全面禁菸，<span class="text-red-600 font-semibold">禁止邊走邊抽</span>，違規將開罰，請至指定吸菸區。
+							</div>
+						</li>
+					</ul>
+				</div>
+            </div>
+
+			<!-- 當地習俗 -->
+			<h3 class="font-bold text-lg px-4 p-4 flex items-center text-slate-700">
+				<i class="fa-solid fa-handshake mr-2"></i> 當地習俗
+			</h3>
+			
+			<div class="space-y-6">
+				<div class="bg-green-50 rounded-2xl p-5 shadow-sm border border-green-200">
+					<div class="font-bold text-lg text-green-800 mb-4 flex items-center">
+						<i class="fa-solid fa-face-smile mr-2"></i>基本禮儀
+					</div>
+					<ul class="space-y-4 text-sm text-slate-800">
+						<li class="flex gap-3">
+							<i class="fa-solid fa-hands text-green-600 mt-1 shrink-0"></i>
+							<div><strong>使用雙手：</strong>無論是付錢或接遞物品，使用雙手是基本禮貌，單手會顯得不耐煩。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-camera text-green-600 mt-1 shrink-0"></i>
+							<div><strong>拍照留意隱私：</strong>韓國對肖像權極為重視。拍照請避免拍到陌生人的臉，上傳社群建議加貼圖遮擋。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-comments text-green-600 mt-1 shrink-0"></i>
+							<div><strong>稱呼與用語：</strong>建議稱呼「姨母 (I-mo)」或「社長 (Sa-jang-nim)」，會比直接叫阿珠媽更受尊重。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-socks text-green-600 mt-1 shrink-0"></i>
+							<div><strong>脫鞋文化：</strong>進入韓屋、特定餐廳需脫鞋。建議穿著方便穿脫且乾淨的襪子，避免尷尬。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-volume-low text-green-600 mt-1 shrink-0"></i>
+							<div><strong>音量注意：</strong>在公共場合、地鐵或公車請保持安靜，大聲喧嘩會引來旁人關注。</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-orange-50 rounded-2xl p-5 shadow-sm border border-orange-200">
+					<div class="font-bold text-lg text-orange-800 mb-4 flex items-center">
+						<i class="fa-solid fa-utensils mr-2"></i>飲食文化
+					</div>
+					<ul class="space-y-4 text-sm text-slate-800">
+						<li class="flex gap-3">
+							<i class="fa-solid fa-bowl-food text-orange-600 mt-1 shrink-0"></i>
+							<div><strong>飯碗不離桌：</strong>端起碗吃飯是不禮貌的（像乞丐）。請把碗放在桌上，用湯匙舀飯吃。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-spoon text-orange-600 mt-1 shrink-0"></i>
+							<div>
+								<strong>餐具分工：</strong>「匙飯筷菜」—湯匙用來吃飯喝湯，筷子只用來夾菜。
+								<div class="text-xs text-slate-500 mt-1 italic">Tips: 餐具通常收納在桌邊抽屜，需自行取用。</div>
+							</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-receipt text-orange-600 mt-1 shrink-0"></i>
+							<div><strong>一人一份：</strong>進餐廳每人點一份餐是基本禮貌，避免多人佔位造成店家困擾。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-share-nodes text-orange-600 mt-1 shrink-0"></i>
+							<div><strong>餐點份量：</strong>傳統文化以「共享」為主，烤肉、鍋類通常需 2~3 人份以上才出餐。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-ban text-orange-600 mt-1 shrink-0"></i>
+							<div><strong>飯後禮儀：</strong>打嗝是沒教養的表現！在公共場合或長輩面前請忍住，或改為「靜音模式」。</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-purple-50 rounded-2xl p-5 shadow-sm border border-purple-200">
+					<div class="font-bold text-lg text-purple-800 mb-4 flex items-center">
+						<i class="fa-solid fa-compass mr-2"></i>其他文化習俗
+					</div>
+					<ul class="space-y-4 text-sm text-slate-800">
+						<li class="flex gap-3">
+							<i class="fa-solid fa-restroom text-purple-600 mt-1 shrink-0"></i>
+							<div><strong>公共廁所：</strong>路邊很少公廁，建議前往地鐵站、百貨公司或在地圖搜尋「화장실」。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-trash-can text-purple-600 mt-1 shrink-0"></i>
+							<div><strong>垃圾分類：</strong>回收做得極細，在民宿請務必分類；隨地亂丟菸蒂或吐口香糖罰金很高。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-shirt text-purple-600 mt-1 shrink-0"></i>
+							<div><strong>試穿文化：</strong>部分店家不提供試穿（特別是白色衣物），購買前請先禮貌詢問。</div>
+						</li>
+						<li class="flex gap-3">
+							<i class="fa-solid fa-coins text-purple-600 mt-1 shrink-0"></i>
+							<div><strong>小費文化：</strong>韓國沒有小費文化，按帳單金額支付即可，主動給小費反而會讓對方困惑。</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+        <!-- TAB 4: 急難救助 -->
+        <section id="tab-emergency" class="tab-content hidden space-y-6">
+            
+            <!-- 台灣官方 -->
+            <div class="bg-red-50 rounded-2xl p-5 border border-red-100 shadow-sm">
+                <h3 class="font-bold text-lg mb-4 flex items-center text-red-700">
+                    <i class="fa-solid fa-flag mr-2"></i> 台灣外交部急難救助
+                </h3>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-red-50">
+                        <div class="text-base font-bold text-slate-800 mb-2">駐釜山辦事處</div>
+                        <a href="tel:+82-51-463-7965" class="flex justify-between items-center py-2 border-b border-slate-50">
+                            <span class="text-sm text-slate-600">電話</span>
+                            <span class="font-bold text-blue-600">051-463-7965</span>
+                        </a>
+                        <a href="tel:+82-10-4537-7961" class="flex justify-between items-center py-2">
+                            <span class="text-sm text-red-500 font-bold">緊急專線</span>
+                            <span class="font-bold text-red-600">010-4537-7961</span>
+                        </a>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-red-50">
+                        <div class="text-base font-bold text-slate-800 mb-2">駐韓國台北代表部 (首爾)</div>
+                        <a href="tel:+82-2-6329-6000" class="flex justify-between items-center py-2 border-b border-slate-50">
+                            <span class="text-sm text-slate-600">電話</span>
+                            <span class="font-bold text-blue-600">02-6329-6000</span>
+                        </a>
+                        <a href="tel:+82-10-9080-2761" class="flex justify-between items-center py-2">
+                            <span class="text-sm text-red-500 font-bold">緊急專線</span>
+                            <span class="font-bold text-red-600">010-9080-2761</span>
+                        </a>
+                    </div>
+                    <div class="bg-slate-800 text-white p-4 rounded-xl">
+                        <div class="text-sm font-bold text-red-400 mb-1 font-medium italic">旅外國人急難救助全球免費專線</div>
+                        <a href="tel:001-800-0885-0885" class="text-base font-bold tracking-tight">001-800-0885-0885</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 韓國當地 -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+                <h3 class="font-bold text-lg mb-4 flex items-center text-slate-700">
+                    <i class="fa-solid fa-phone-flip mr-2"></i> 韓國在地求助
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <a href="tel:1330" class="bg-slate-50 p-4 rounded-2xl border border-slate-100 col-span-2 shadow-sm">
+                        <div class="text-xs text-slate-700 mb-1">韓國旅遊諮詢熱線 (有中文)</div>
+                        <div class="font-bold text-xl text-blue-600">1330 <span class="text-xs font-normal text-slate-500 ml-1">(手機撥 02-1330)</span></div>
+                    </a>
+                    <a href="tel:112" class="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="text-xs text-slate-700 mb-1">警察局</div>
+                        <div class="font-bold text-xl text-slate-800">112</div>
+                    </a>
+                    <a href="tel:02-700-6277" class="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="text-xs text-slate-700 mb-1">警察局 (有中文服務)</div>
+                        <div class="font-bold text-lg text-slate-800">02-700-6277</div>
+                    </a>
+                    <a href="tel:119" class="bg-rose-50 p-4 rounded-2xl border border-rose-100 shadow-sm">
+                        <div class="text-xs text-rose-500 mb-1">火警/救護車</div>
+                        <div class="font-bold text-xl text-rose-600">119</div>
+                    </a>
+                    <a href="tel:182" class="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="text-xs text-slate-700 mb-1">遺失物中心</div>
+                        <div class="font-bold text-xl text-slate-800">182</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-800/90 backdrop-blur-sm text-white px-6 py-2 rounded-full text-xs opacity-0 transition-opacity pointer-events-none z-50">
+        已複製到剪貼簿
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('text-slate-500');
+            });
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-btn-' + tabId);
+            activeBtn.classList.add('tab-active');
+            activeBtn.classList.remove('text-slate-500');
+            window.scrollTo(0, 0);
+        }
+
+        function copyText(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
