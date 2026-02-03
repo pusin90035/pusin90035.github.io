@@ -47,6 +47,24 @@
         .text-cherry { color: #f43f5e; }
         .border-cherry { border-color: #fecdd3; }
         .bg-ci-card { background-color: #ffe4e6; }
+		/* 天氣組件過渡效果 */
+		#weather-widget { 
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+		}
+		.weather-panel-hidden { 
+			opacity: 0; 
+			transform: scale(0.9) translateY(20px); 
+			pointer-events: none; 
+		}
+		.weather-panel-visible { 
+			opacity: 1; 
+			transform: scale(1) translateY(0); 
+			pointer-events: auto; 
+		}
+		/* 預報卡片滾動條隱藏 */
+		#tp-forecast::-webkit-scrollbar, #bs-forecast::-webkit-scrollbar {
+			display: none;
+}
     </style>
 </head>
 <body class="text-slate-800 pb-12">
@@ -134,7 +152,7 @@
                             </div>
                             <div class="flex items-start">
                                 <i class="fa-solid fa-briefcase w-6 mt-1 text-rose-400"></i>
-                                <div><span class="font-bold text-slate-800">個人物品：</span>後背包/小提包 (限1件)</div>
+                                <div><span class="font-bold text-slate-800">隨身物品：</span>後背包/小提包 (限1件)</div>
                             </div>
                         </div>
                     </div>
@@ -453,7 +471,7 @@
 							<i class="fa-solid fa-smoking-ban text-blue-500 mt-1 shrink-0"></i>
 							<div>
 								<strong>吸菸規定：</strong>
-								室內全面禁菸，<span class="text-red-600 font-semibold">禁止邊走邊抽</span>，違規將開罰，必須至指定吸菸區。
+								室內全面禁菸，<span class="text-red-600 font-semibold">禁止邊走邊抽</span>，違規將開罰，請至指定吸菸區。
 							</div>
 						</li>
 					</ul>
@@ -481,7 +499,7 @@
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-comments text-green-600 mt-1 shrink-0"></i>
-							<div><strong>稱呼與用語：</strong>建議稱呼店員為「姨母 (I-mo)」或「社長 (Sa-jang-nim)」，會比直接叫阿珠媽更受尊重。</div>
+							<div><strong>稱呼與用語：</strong>建議稱呼「姨母 (I-mo)」或「社長 (Sa-jang-nim)」，會比直接叫阿珠媽更受尊重。</div>
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-socks text-green-600 mt-1 shrink-0"></i>
@@ -501,7 +519,7 @@
 					<ul class="space-y-4 text-sm text-slate-800">
 						<li class="flex gap-3">
 							<i class="fa-solid fa-bowl-food text-orange-600 mt-1 shrink-0"></i>
-							<div><strong>飯碗不離桌：</strong>在韓國端起碗吃飯是不禮貌的。請把碗放在桌上，用湯匙舀飯吃。</div>
+							<div><strong>飯碗不離桌：</strong>端起碗吃飯是不禮貌的（像乞丐）。請把碗放在桌上，用湯匙舀飯吃。</div>
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-spoon text-orange-600 mt-1 shrink-0"></i>
@@ -516,7 +534,7 @@
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-share-nodes text-orange-600 mt-1 shrink-0"></i>
-							<div><strong>餐點份量：</strong>韓國文化以「共享」為主，烤肉、鍋類通常需 2~3 人份以上才出餐，要留意份量。</div>
+							<div><strong>餐點份量：</strong>傳統文化以「共享」為主，烤肉、鍋類通常需 2~3 人份以上才出餐。</div>
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-ban text-orange-600 mt-1 shrink-0"></i>
@@ -532,15 +550,15 @@
 					<ul class="space-y-4 text-sm text-slate-800">
 						<li class="flex gap-3">
 							<i class="fa-solid fa-restroom text-purple-600 mt-1 shrink-0"></i>
-							<div><strong>公共廁所：</strong>韓國很少公廁，建議前往地鐵站、百貨公司或在 Naver Map 搜尋「화장실」。</div>
+							<div><strong>公共廁所：</strong>路邊很少公廁，建議前往地鐵站、百貨公司或在地圖搜尋「화장실」。</div>
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-trash-can text-purple-600 mt-1 shrink-0"></i>
-							<div><strong>垃圾分類：</strong>韓國回收做得極細，丟垃圾請分類。另外，隨地亂丟菸蒂或吐口香糖可能被開罰。</div>
+							<div><strong>垃圾分類：</strong>回收做得極細，在民宿請務必分類；隨地亂丟菸蒂或吐口香糖罰金很高。</div>
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-shirt text-purple-600 mt-1 shrink-0"></i>
-							<div><strong>試穿文化：</strong>部分店家不提供試穿（特別是白色衣物），建議入店先禮貌詢問。</div>
+							<div><strong>試穿文化：</strong>部分店家不提供試穿（特別是白色衣物），購買前請先禮貌詢問。</div>
 						</li>
 						<li class="flex gap-3">
 							<i class="fa-solid fa-coins text-purple-600 mt-1 shrink-0"></i>
@@ -618,8 +636,49 @@
                 </div>
             </div>
         </section>
-
     </main>
+
+	<!-- 天氣浮動組件 -->
+	<div id="weather-widget" class="fixed bottom-6 right-6 z-[60]">
+		<!-- 展開的天氣看板 -->
+		<div id="weather-panel" class="weather-panel-hidden absolute bottom-16 right-0 w-80 bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
+			<div class="bg-blue-600 p-4 text-white flex justify-between items-center">
+				<span class="font-bold tracking-wide"><i class="fa-solid fa-cloud-sun mr-2"></i>天氣預報</span>
+				<button onclick="toggleWeather()" class="text-white/70 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+			</div>
+			
+			<div class="p-4 space-y-6 max-h-[70vh] overflow-y-auto">
+				<!-- 台北區域 -->
+				<div>
+					<div class="flex items-center justify-between mb-2">
+						<h4 class="font-bold text-slate-800 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-blue-500"></i>台北 Taipei</h4>
+						<span id="tp-curr-temp" class="text-xs font-bold text-blue-600">讀取中...</span>
+					</div>
+					<div id="tp-forecast" class="flex justify-between gap-2 overflow-x-auto pb-1">
+						<!-- 預報內容透過 JS 生成 -->
+					</div>
+				</div>
+				
+				<hr class="border-slate-100">
+
+				<!-- 釜山區域 -->
+				<div>
+					<div class="flex items-center justify-between mb-2">
+						<h4 class="font-bold text-slate-800 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-rose-500"></i>釜山 Busan</h4>
+						<span id="bs-curr-temp" class="text-xs font-bold text-rose-600">讀取中...</span>
+					</div>
+					<div id="bs-forecast" class="flex justify-between gap-2 overflow-x-auto pb-1">
+						<!-- 預報內容透過 JS 生成 -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 浮動按鈕 -->
+		<button onclick="toggleWeather()" class="bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center border-4 border-white">
+			<i class="fa-solid fa-cloud-sun text-2xl"></i>
+		</button>
+	</div>
 
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-800/90 backdrop-blur-sm text-white px-6 py-2 rounded-full text-xs opacity-0 transition-opacity pointer-events-none z-50">
@@ -656,8 +715,66 @@
                 toast.style.opacity = '0';
             }, 2000);
         }
+
+		// 天氣代碼對應圖示
+		const weatherCodeMap = {
+			0: { label: '晴朗', icon: 'fa-sun text-yellow-500' },
+			1: { label: '晴時多雲', icon: 'fa-cloud-sun text-yellow-400' },
+			2: { label: '多雲', icon: 'fa-cloud text-slate-400' },
+			3: { label: '陰天', icon: 'fa-cloud text-slate-500' },
+			45: { label: '有霧', icon: 'fa-smog text-slate-300' },
+			51: { label: '毛毛雨', icon: 'fa-cloud-rain text-blue-300' },
+			61: { label: '小雨', icon: 'fa-cloud-showers-heavy text-blue-400' },
+			71: { label: '小雪', icon: 'fa-snowflake text-white' },
+			80: { label: '陣雨', icon: 'fa-cloud-showers-heavy text-blue-500' },
+			85: { label: '陣雪', icon: 'fa-snowflake text-blue-600' }
+		};
+
+		// 開關天氣看板
+		function toggleWeather() {
+			const panel = document.getElementById('weather-panel');
+			panel.classList.toggle('weather-panel-hidden');
+			panel.classList.toggle('weather-panel-visible');
+		}
+
+		// 抓取 API 數據
+		async function fetchWeather(lat, lon, containerId, tempId) {
+			try {
+				const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto&forecast_days=14`);
+				const data = await res.json();
+				
+				// 更新目前溫度
+				document.getElementById(tempId).innerText = `目前 ${Math.round(data.current_weather.temperature)}°C`;
+				
+				// 生成 7 天預報
+				const container = document.getElementById(containerId);
+				container.innerHTML = '';
+				
+				for(let i=0; i<7; i++) {
+					const code = data.daily.weather_code[i];
+					const info = weatherCodeMap[code] || { label: '陰', icon: 'fa-cloud text-slate-400' };
+					const dateObj = new Date(data.daily.time[i]);
+					const dayLabel = i === 0 ? '今日' : `${dateObj.getMonth()+1}/${dateObj.getDate()}`;
+					
+					container.innerHTML += `
+						<div class="flex-1 flex flex-col items-center p-2 bg-slate-50 rounded-xl min-w-[62px]">
+							<span class="text-[10px] font-bold text-slate-400 mb-1">${dayLabel}</span>
+							<i class="fa-solid ${info.icon} text-sm mb-1"></i>
+							<span class="text-[9px] font-medium text-slate-600 mb-1">${info.label}</span>
+							<span class="text-[10px] font-bold text-slate-800">${Math.round(data.daily.temperature_2m_min[i])}°~${Math.round(data.daily.temperature_2m_max[i])}°</span>
+						</div>`;
+				}
+			} catch (e) {
+				console.error("天氣數據獲取失敗", e);
+			}
+		}
+
+		// 初始化天氣 (台北 25.03, 121.56 | 釜山 35.17, 129.07)
+		// 如果你原本就有 window.onload，請把這兩行加在裡面即可
+		document.addEventListener('DOMContentLoaded', () => {
+			fetchWeather(25.03, 121.56, 'tp-forecast', 'tp-curr-temp');
+			fetchWeather(35.17, 129.07, 'bs-forecast', 'bs-curr-temp');
+		});
     </script>
 </body>
 </html>
-
-
