@@ -97,67 +97,158 @@
         <section id="tab-transport-hotel" class="tab-content space-y-6">
             <!-- 航班區 -->
             <div class="bg-white rounded-2xl shadow-sm p-5 border border-slate-100">
-                <h3 class="font-bold text-lg mb-4 flex items-center text-blue-700">
-                    <i class="fa-solid fa-plane mr-2"></i> 航班行李資訊
-                </h3>
-                <div class="space-y-4">
-                    <!-- 釜山航空 -->
-                    <div class="p-4 bg-blue-50 rounded-xl border border-blue-100">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="bg-blue-600 text-white text-[13px] px-2 py-1 rounded font-bold">去程 4/4 BX794</span>
-                            <span class="text-blue-700 font-bold">釜山航空</span>
-                        </div>
-                        <div class="space-y-3 text-sm text-slate-600">
-                            <div class="flex items-start">
-                                <i class="fa-solid fa-suitcase-rolling w-6 mt-1 text-blue-500"></i>
-                                <div>
-                                    <span class="font-bold text-slate-800">托運行李：</span>15kg
-                                    <div class="text-[11px] opacity-80">尺寸限制：三邊總和203cm 內</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fa-solid fa-suitcase w-6 mt-1 text-blue-500"></i>
-                                <div>
-                                    <span class="font-bold text-slate-800">手提行李：</span>10kg (限1件)
-                                    <div class="text-[11px] opacity-80">尺寸限制：三邊總和115cm 內 (55x40x20cm)</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fa-solid fa-briefcase w-6 mt-1 text-blue-500"></i>
-                                <div><span class="font-bold text-slate-800">個人物品：</span>後背包/小提包 (限1件)</div>
-                            </div>
-                        </div>
-                    </div>
+				<h3 class="font-bold text-lg mb-4 flex items-center text-blue-700">
+					<i class="fa-solid fa-plane-departure mr-2"></i> 航班飛行資訊
+				</h3>
+				
+				<div class="space-y-4">
+					<div class="p-4 bg-blue-50 rounded-xl border border-blue-100 relative">
+						<details class="group">
+							<summary class="list-none cursor-pointer">
+								<div class="flex justify-between items-start mb-4">
+									<div>
+										<span class="bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-bold mb-2 inline-block">去程 4/4 BX794</span>
+										<div class="text-blue-800 font-bold text-sm">釜山航空 Air Busan</div>
+									</div>
+									<div class="flex items-center text-blue-600 bg-white border border-blue-200 px-2 py-1 rounded-lg text-xs font-bold group-open:bg-blue-600 group-open:text-white transition-colors">
+										<i class="fa-solid fa-suitcase-rolling mr-1"></i> 行李資訊
+									</div>
+								</div>
 
-                    <!-- 中華航空 -->
-                    <div class="p-4 bg-ci-card rounded-xl border border-cherry">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="bg-rose-400 text-white text-[13px] px-2 py-1 rounded font-bold">回程 4/8 CI189</span>
-                            <span class="text-rose-500 font-bold">中華航空</span>
-                        </div>
-                        <div class="space-y-3 text-sm text-slate-600">
-                            <div class="flex items-start">
-                                <i class="fa-solid fa-suitcase-rolling w-6 mt-1 text-rose-400"></i>
-                                <div>
-                                    <span class="font-bold text-slate-800">托運行李：</span>23kg x 2件
-                                    <div class="text-[11px] opacity-80">尺寸限制：三邊總和158cm 內</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fa-solid fa-suitcase w-6 mt-1 text-rose-400"></i>
-                                <div>
-                                    <span class="font-bold text-slate-800">手提行李：</span>7kg (限1件)
-                                    <div class="text-[11px] opacity-80">尺寸限制：56x36x23cm 內</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fa-solid fa-briefcase w-6 mt-1 text-rose-400"></i>
-                                <div><span class="font-bold text-slate-800">隨身物品：</span>後背包/小提包 (限1件)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+								<div class="flex items-center justify-between px-2">
+									<div class="text-center">
+										<div class="text-2xl font-black text-slate-800 leading-none">13:30</div>
+										<div class="text-[11px] font-bold text-slate-500 mt-1">桃園機場 Terminal 2</div>
+									</div>
+									
+									<div class="flex-1 flex flex-col items-center px-2">
+										<div class="flex items-center justify-center w-full mb-1">
+											<div class="flex-1 border-t-2 border-dashed border-blue-200/60 h-px"></div>
+											<i class="fa-solid fa-plane text-blue-300 mx-2 text-base transform"></i>
+											<div class="flex-1 border-t-2 border-dashed border-blue-200/60 h-px"></div>
+										</div>
+										<div class="text-[10px] text-slate-400 italic leading-none">約 2小時 25分</div>
+									</div>
+
+									<div class="text-center">
+										<div class="text-2xl font-black text-slate-800 leading-none">16:55</div>
+										<div class="text-[11px] font-bold text-slate-500 mt-1">金海機場 Terminal I</div>
+									</div>
+								</div>
+							</summary>
+
+							<div class="mt-4 pt-4 border-t border-blue-200/50 space-y-2 text-slate-600">
+								<div class="flex justify-between items-start">
+									<div class="flex items-center text-sm text-slate-600">
+										<i class="fa-solid fa-suitcase-rolling mr-2 text-blue-400 w-4"></i>
+										<span>托運行李</span>
+									</div>
+									<div class="text-right">
+										<div class="text-xs font-bold text-slate-800 leading-none">15g</div>
+										<div class="text-[11px] text-slate-500 mt-1 leading-tight opacity-80">
+											尺寸限制：三邊總和203cm 內
+										</div>
+									</div>
+								</div>
+								<div class="flex justify-between items-start">
+									<div class="flex items-center text-sm text-slate-600">
+										<i class="fa-solid fa-suitcase mr-2 text-blue-400 w-4"></i>
+										<span>手提行李</span>
+									</div>
+									<div class="text-right">
+										<div class="text-xs font-bold text-slate-800 leading-none">10kg (限1件)</div>
+										<div class="text-[11px] text-slate-500 mt-1 leading-tight opacity-80">
+											尺寸限制：55x40x20cm 內
+										</div>
+									</div>
+								</div>
+								<div class="flex justify-between items-start">
+									<div class="flex items-center text-sm text-slate-600">
+										<i class="fa-solid fa-briefcase mr-2 text-blue-400 w-4"></i>
+										<span>隨身物品</span>
+									</div>
+									<div class="text-right">
+										<div class="text-xs font-bold text-slate-800 leading-none">後背包/小提包 (限1件)</div>
+									</div>
+								</div>
+							</div>
+						</details>
+					</div>
+
+					<div class="p-4 bg-rose-50 rounded-xl border border-rose-100 relative">
+						<details class="group">
+							<summary class="list-none cursor-pointer">
+								<div class="flex justify-between items-start mb-4">
+									<div>
+										<span class="bg-rose-500 text-white text-xs px-2 py-0.5 rounded font-bold mb-2 inline-block">回程 4/8 CI189</span>
+										<div class="text-rose-800 font-bold text-sm">中華航空 China Airlines</div>
+									</div>
+									<div class="flex items-center text-rose-500 bg-white border border-rose-200 px-2 py-1 rounded-lg text-xs font-bold group-open:bg-rose-500 group-open:text-white transition-colors">
+										<i class="fa-solid fa-suitcase-rolling mr-1"></i> 行李資訊
+									</div>
+								</div>
+
+								<div class="flex items-center justify-between px-2">
+									<div class="text-center">
+										<div class="text-2xl font-black text-slate-800 leading-none">12:15</div>
+										<div class="text-[11px] font-bold text-slate-500 mt-1">金海機場 Terminal I</div>
+									</div>
+
+									<div class="flex-1 flex flex-col items-center px-2">
+										<div class="flex items-center justify-center w-full mb-1">
+											<div class="flex-1 border-t-2 border-dashed border-rose-200/60 h-px"></div>
+											<i class="fa-solid fa-plane text-rose-300 mx-2 text-base transform"></i>
+											<div class="flex-1 border-t-2 border-dashed border-rose-200/60 h-px"></div>
+										</div>
+										<div class="text-[10px] text-slate-400 italic leading-none">約 2小時 25分</div>
+									</div>
+
+									<div class="text-center">
+										<div class="text-2xl font-black text-slate-800 leading-none">13:40</div>
+										<div class="text-[11px] font-bold text-slate-500 mt-1">桃園機場 Terminal 1</div>
+									</div>
+								</div>
+							</summary>
+
+							<div class="mt-4 pt-4 border-t border-rose-200/50 space-y-2 text-slate-600">
+								<div class="flex justify-between items-start">
+									<div class="flex items-center text-sm text-slate-600">
+										<i class="fa-solid fa-suitcase-rolling mr-2 text-rose-400 w-4"></i>
+										<span>托運行李</span>
+									</div>
+									<div class="text-right">
+										<div class="text-xs font-bold text-slate-800 leading-none">23kg x 2件</div>
+										<div class="text-[11px] text-slate-500 mt-1 leading-tight opacity-80">
+											尺寸限制：三邊總和158cm 內
+										</div>
+									</div>
+								</div>
+								<div class="flex justify-between items-start">
+									<div class="flex items-center text-sm text-slate-600">
+										<i class="fa-solid fa-suitcase mr-2 text-rose-400 w-4"></i>
+										<span>手提行李</span>
+									</div>
+									<div class="text-right">
+										<div class="text-xs font-bold text-slate-800 leading-none">7kg (限1件)</div>
+										<div class="text-[11px] text-slate-500 mt-1 leading-tight opacity-80">
+											尺寸限制：56x36x23cm 內
+										</div>
+									</div>
+								</div>
+								<div class="flex justify-between items-start">
+									<div class="flex items-center text-sm text-slate-600">
+										<i class="fa-solid fa-briefcase mr-2 text-rose-400 w-4"></i>
+										<span>隨身物品</span>
+									</div>
+									<div class="text-right">
+										<div class="text-xs font-bold text-slate-800 leading-none">後背包/小提包 (限1件)</div>
+									</div>
+								</div>
+							</div>
+						</details>
+					</div>
+				</div>
+			</div>
 
             <!-- 飯店區 -->
             <div class="bg-white rounded-2xl shadow-sm p-5 border border-slate-100">
@@ -214,7 +305,7 @@
                 <div class="relative timeline-line ml-4 space-y-8">
                     <div class="relative pl-10">
                         <div class="absolute left-2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-slate-500">09:30</div>
+                        <div class="text-sm font-bold text-blue-500">09:30</div>
                         <div class="font-bold text-lg">Home</div>
                         <div class="text-xs text-slate-500 mt-1">從家裡出發</div>
                     </div>
@@ -222,12 +313,12 @@
                         <div class="absolute left-2 w-6 h-6 bg-slate-300 rounded-full border-4 border-white shadow z-10"></div>
                         <div class="text-sm font-bold text-slate-500">13:30</div>
                         <div class="font-bold text-lg text-slate-700">桃園機場 T2</div>
-                        <div class="text-xs text-slate-500 mt-1">辦理登機</div>
+                        <div class="text-xs text-slate-500 mt-1">辦理登機、搭乘BX794航班</div>
                     </div>
                     <div class="relative pl-10">
                         <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
                         <div class="text-sm font-bold text-orange-500">19:20</div>
-                        <div class="font-bold text-lg">西面烤肉四大家 🥩</div>
+                        <div class="font-bold text-lg">烤肉的男子 🥩</div>
                         <div class="text-xs text-slate-500 mt-1">先到飯店 Check-in 再前往享用釜山烤肉四大名店</div>
                     </div>
                     <div class="relative pl-10">
@@ -278,7 +369,67 @@
                         <div class="font-bold text-lg">海雲台市場</div>
                         <div class="text-xs text-slate-600 mt-1 italic">
                             晚餐：自理<br>
-                            推薦豬肉湯飯、牛骨湯
+                            推薦豬肉湯飯、牛骨湯、小吃
+                        </div>
+                    </div>
+					<div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-blue-500">20:00</div>
+                        <div class="font-bold text-lg">Club D OASIS ♨️</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">汗蒸幕結束疲憊的一天</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200">
+
+			<!-- DAY 3 -->
+            <div class="itinerary-day">
+                <div class="flex items-center gap-2 mb-4 bg-green-50 w-fit px-4 py-1 rounded-full border border-blue-100">
+                    <span class="font-black text-green-600 text-sm">DAY 3</span>
+                    <span class="text-green-400 font-medium text-xs">4/6 (一)</span>
+                </div>
+                <div class="relative timeline-line ml-4 space-y-10">
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-slate-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-slate-500">10:00</div>
+                        <div class="font-bold text-lg">包車從飯店出發</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">早餐：飯捲</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">09:40</div>
+                        <div class="font-bold text-lg">海東龍宮寺</div>
+                        <div class="text-xs text-slate-600 mt-1">韓國第一間建在海岸邊的佛寺！</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-orange-500">11:00</div>
+                        <div class="font-bold text-lg">機張市場 🦀</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">午餐：新鮮松葉蟹</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">13:00</div>
+                        <div class="font-bold text-lg">Busan X The Sky</div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-green-500">15:00</div>
+                        <div class="font-bold text-lg">海雲台景觀火車 🚃</div>
+                        <div class="text-xs text-slate-600 mt-1">
+                            尾浦→青沙浦：膠囊列車<br>
+                            青沙浦→尾浦：海岸列車
+                        </div>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute left-2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow z-10"></div>
+                        <div class="text-sm font-bold text-purple-500">17:00</div>
+                        <div class="font-bold text-lg text-slate-800">西面逛街 🛍️</div>
+                        <div class="text-xs text-slate-600 mt-1">逛樂天免稅店、西面青春街或地下街</div>
+                        <div class="text-xs text-slate-600 mt-1 italic">
+                            晚餐：自理<br>
+                            推薦豬肉湯飯、刀削麵
                         </div>
                     </div>
                 </div>
@@ -286,11 +437,11 @@
 
             <hr class="border-slate-200">
 
-            <!-- DAY 3 -->
+            <!-- DAY 4 -->
             <div class="itinerary-day">
                 <div class="flex items-center gap-2 mb-4 bg-yellow-50 w-fit px-4 py-1 rounded-full border border-blue-100">
-                    <span class="font-black text-yellow-600 text-sm">DAY 3</span>
-                    <span class="text-yellow-400 font-medium text-xs">4/6 (一)</span>
+                    <span class="font-black text-yellow-600 text-sm">DAY 4</span>
+                    <span class="text-yellow-400 font-medium text-xs">4/7 (二)</span>
                 </div>
                 <div class="relative timeline-line ml-4 space-y-8">
                     <div class="relative pl-10">
@@ -306,81 +457,26 @@
                     </div>
                     <div class="relative pl-10">
                         <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-orange-500">11:30</div>
+                        <div class="text-sm font-bold text-orange-500">11:40</div>
                         <div class="font-bold text-lg text-slate-800">南浦洞</div>
                         <div class="text-xs text-slate-600 mt-1 italic">午餐：蔘雞湯</div>
                     </div>
                     <div class="relative pl-10">
                         <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-green-500">12:30</div>
-                        <div class="font-bold text-lg text-slate-800">釜山塔 / 龍頭山公園</div>
-                        <div class="text-xs text-slate-600 mt-1">俯瞰釜山市景</div>
+                        <div class="text-sm font-bold text-green-500">13:30</div>
+                        <div class="font-bold text-lg text-slate-800">松島海上纜車 🚠</div>
+                        <div class="text-xs text-slate-600 mt-1">韓國最長跨海纜車</div>
                     </div>
                     <div class="relative pl-10">
                         <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-green-500">14:00</div>
+                        <div class="text-sm font-bold text-green-500">15:00</div>
                         <div class="font-bold text-lg text-slate-800">白淺灘文化村 ☕</div>
                         <div class="text-xs text-slate-600 mt-1">咖啡廳喝咖啡欣賞海景</div>
                     </div>
-                    <div class="relative pl-10">
-                        <div class="absolute left-2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-purple-500">16:00</div>
-                        <div class="font-bold text-lg text-slate-800">西面逛街 🛍️</div>
-                        <div class="text-xs text-slate-600 mt-1">逛樂天免稅店或地下街</div>
-                        <div class="text-xs text-slate-600 mt-1 italic">
-                            晚餐：自理<br>
-                            推薦豬肉湯飯、刀削麵
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="border-slate-200">
-
-            <!-- DAY 4 -->
-            <div class="itinerary-day">
-                <div class="flex items-center gap-2 mb-4 bg-green-50 w-fit px-4 py-1 rounded-full border border-blue-100">
-                    <span class="font-black text-green-600 text-sm">DAY 4</span>
-                    <span class="text-green-400 font-medium text-xs">4/7 (二)</span>
-                </div>
-                <div class="relative timeline-line ml-4 space-y-10">
-                    <div class="relative pl-10">
-                        <div class="absolute left-2 w-6 h-6 bg-slate-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-slate-500">10:00</div>
-                        <div class="font-bold text-lg">包車從飯店出發</div>
-                        <div class="text-xs text-slate-600 mt-1 italic">早餐：飯捲</div>
-                    </div>
-                    <div class="relative pl-10">
-                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-green-500">10:40</div>
-                        <div class="font-bold text-lg">海東龍宮寺</div>
-                        <div class="text-xs text-slate-600 mt-1">韓國第一間建在海岸的佛寺！</div>
-                    </div>
-                    <div class="relative pl-10">
+					<div class="relative pl-10">
                         <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-orange-500">12:20</div>
-                        <div class="font-bold text-lg">機張市場 🦀</div>
-                        <div class="text-xs text-slate-600 mt-1 italic">午餐：新鮮松葉蟹</div>
-                    </div>
-                    <div class="relative pl-10">
-                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-green-500">14:00</div>
-                        <div class="font-bold text-lg">Busan X The Sky</div>
-                    </div>
-                    <div class="relative pl-10">
-                        <div class="absolute left-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-green-500">15:40</div>
-                        <div class="font-bold text-lg">海雲台景觀火車 🚃</div>
-                        <div class="text-xs text-slate-600 mt-1">
-                            尾浦→青沙浦：海岸列車<br>
-                            咖啡廳喝咖啡欣賞海景<br>
-                            青沙浦→尾浦：膠囊列車
-                        </div>
-                    </div>
-                    <div class="relative pl-10">
-                        <div class="absolute left-2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow z-10"></div>
-                        <div class="text-sm font-bold text-orange-500">18:00</div>
-                        <div class="font-bold text-lg text-slate-800">南浦洞</div>
+                        <div class="text-sm font-bold text-orange-500">17:00</div>
+                        <div class="font-bold text-lg text-slate-800">釜山塔</div>
                         <div class="text-xs text-slate-600 mt-1">富平罐頭市場、BIFF廣場、樂天百貨光復店...等</div>
                         <div class="text-xs text-slate-600 mt-1 italic">
                             晚餐：自理<br>
@@ -409,7 +505,10 @@
                         <div class="absolute left-2 w-6 h-6 bg-slate-300 rounded-full border-4 border-white shadow z-10"></div>
                         <div class="text-sm font-bold text-slate-500">09:40</div>
                         <div class="font-bold text-lg">釜山金海機場</div>
-                        <div class="text-xs text-slate-600 mt-1">09:00 機場接送從飯店出發</div>
+                        <div class="text-xs text-slate-600 mt-1">09:00 機場接送從飯店出發<br>
+							搭乘BX794航班
+						</div>
+						
                         <div class="text-xs text-slate-600 mt-1 italic">早餐：機場航廈自理</div>
                     </div>
                 </div>
@@ -778,4 +877,5 @@
     </script>
 </body>
 </html>
+
 
