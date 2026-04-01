@@ -824,16 +824,47 @@
 
 		// 天氣代碼對應圖示
 		const weatherCodeMap = {
-			0: { label: '晴朗', icon: 'fa-sun text-yellow-500' },
-			1: { label: '晴時多雲', icon: 'fa-cloud-sun text-yellow-400' },
-			2: { label: '多雲', icon: 'fa-cloud text-slate-400' },
-			3: { label: '陰天', icon: 'fa-cloud text-slate-500' },
-			45: { label: '有霧', icon: 'fa-smog text-slate-300' },
-			51: { label: '毛毛雨', icon: 'fa-cloud-rain text-blue-300' },
-			61: { label: '小雨', icon: 'fa-cloud-showers-heavy text-blue-400' },
-			71: { label: '小雪', icon: 'fa-snowflake text-white' },
-			80: { label: '陣雨', icon: 'fa-cloud-showers-heavy text-blue-500' },
-			85: { label: '陣雪', icon: 'fa-snowflake text-blue-600' }
+		    // 晴天與多雲系列
+		    0: { label: '晴朗', icon: 'fa-sun text-yellow-500' },
+		    1: { label: '晴時多雲', icon: 'fa-cloud-sun text-yellow-400' },
+		    2: { label: '多雲', icon: 'fa-cloud text-slate-400' },
+		    3: { label: '陰天', icon: 'fa-cloud text-slate-500' },
+		
+		    // 霧系列
+		    45: { label: '有霧', icon: 'fa-smog text-slate-300' },
+		    48: { label: '濃霧', icon: 'fa-smog text-slate-400' },
+		
+		    // 毛毛雨系列 (Drizzle)
+		    51: { label: '輕微毛毛雨', icon: 'fa-cloud-rain text-blue-300' },
+		    53: { label: '毛毛雨', icon: 'fa-cloud-rain text-blue-400' },
+		    55: { label: '濃密毛毛雨', icon: 'fa-cloud-rain text-blue-500' },
+		    56: { label: '凍毛毛雨', icon: 'fa-icicles text-blue-200' },
+		    57: { label: '強效凍毛毛雨', icon: 'fa-icicles text-blue-300' },
+		
+		    // 雨系列 (Rain)
+		    61: { label: '小雨', icon: 'fa-cloud-showers-heavy text-blue-400' },
+		    63: { label: '中雨', icon: 'fa-cloud-showers-heavy text-blue-500' },
+		    65: { label: '大雨', icon: 'fa-cloud-showers-heavy text-blue-600' },
+		    66: { label: '凍雨', icon: 'fa-cloud-meatball text-blue-200' },
+		    67: { label: '強凍雨', icon: 'fa-cloud-meatball text-blue-300' },
+		
+		    // 雪系列 (Snow)
+		    71: { label: '小雪', icon: 'fa-snowflake text-slate-200' },
+		    73: { label: '中雪', icon: 'fa-snowflake text-slate-300' },
+		    75: { label: '大雪', icon: 'fa-snowflake text-slate-400' },
+		    77: { label: '雪粒', icon: 'fa-snowflake text-slate-100' },
+		
+		    // 陣雨系列 (Showers)
+		    80: { label: '小陣雨', icon: 'fa-cloud-sun-rain text-blue-400' },
+		    81: { label: '陣雨', icon: 'fa-cloud-showers-heavy text-blue-500' },
+		    82: { label: '強陣雨', icon: 'fa-cloud-showers-heavy text-blue-700' },
+		    85: { label: '陣雪', icon: 'fa-snowflake text-blue-100' },
+		    86: { label: '強陣雪', icon: 'fa-snowflake text-blue-200' },
+		
+		    // 雷陣雨系列 (Thunderstorm)
+		    95: { label: '雷陣雨', icon: 'fa-cloud-bolt text-amber-500' },
+		    96: { label: '雷雨伴隨冰雹', icon: 'fa-cloud-lightning text-amber-600' },
+		    99: { label: '強雷雨伴隨冰雹', icon: 'fa-cloud-lightning text-red-500' }
 		};
 
 		// 開關天氣看板
@@ -858,7 +889,7 @@
 				
 				for(let i=0; i<7; i++) {
 					const code = data.daily.weather_code[i];
-					const info = weatherCodeMap[code] || { label: '陰', icon: 'fa-cloud text-slate-400' };
+					const info = weatherCodeMap[code] || { label: '多雲', icon: 'fa-cloud text-slate-400' };
 					const dateObj = new Date(data.daily.time[i]);
 					const dayLabel = i === 0 ? '今日' : `${dateObj.getMonth()+1}/${dateObj.getDate()}`;
 					
@@ -875,11 +906,11 @@
 			}
 		}
 
-		// 初始化天氣 (台北 25.047, 121.517 | 釜山 35.157, 129.059)
+		// 初始化天氣 (台北 25.08, 121.57 | 釜山 35.09, 129.03)
 		// 如果你原本就有 window.onload，請把這兩行加在裡面即可
 		document.addEventListener('DOMContentLoaded', () => {
-			fetchWeather(25.047, 121.517, 'tp-forecast', 'tp-curr-temp');
-			fetchWeather(35.157, 129.059, 'bs-forecast', 'bs-curr-temp');
+			fetchWeather(25.08, 121.57, 'tp-forecast', 'tp-curr-temp');
+			fetchWeather(35.09, 129.03, 'bs-forecast', 'bs-curr-temp');
 		});
     </script>
 </body>
